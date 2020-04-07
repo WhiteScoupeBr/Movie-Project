@@ -1,0 +1,21 @@
+header{
+    font: 300 20px Roboto,sans-serif;
+    position: center;
+    width: 1440px;
+    background: #142B41;
+    height: 126px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    
+}
+
+h1,h2,h3{
+    font: 300 Roboto,sans-serif;
+    margin: 20px;
+    color: #ffffff;
+}
+
+h2,h3{
+    margin-top: 33px;
+}
