@@ -13,10 +13,14 @@ export default function Register(){
     const [date, setDate] = useState('');
     const [actors, setActors] = useState('');
     const [url, setUrl] = useState('');
+    const aux = localStorage.getItem('idUserAux');
+    const [idUser,setIduser]=useState('');
+    const [img,setImg]=useState('');
     
+
     async function registrar(e){
         e.preventDefault();
-
+        setIduser(aux);
         const data ={
         title,
         description,
@@ -24,6 +28,8 @@ export default function Register(){
         date,
         actors,
         url,
+        img,
+        idUser,
         };
 
         try{
@@ -70,6 +76,10 @@ export default function Register(){
                     <input placeholder="URL do Trailer" type="text"
                     value={url}
                     onChange={e=>setUrl(e.target.value)}
+                    />
+                    <input placeholder="Imagem" type="text"
+                    value={img}
+                    onChange={e=>setImg(e.target.value)}
                     />
                     <button className="button" type="submit">Enviar</button>
                 </form>

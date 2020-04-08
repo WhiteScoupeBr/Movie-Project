@@ -7,13 +7,17 @@ import api from '../../services/api';
 export default function List(){
 
     const [movies,setMovies]= useState([]);
-    
+    const idAux = localStorage.getItem('idUserAux');
+
         useEffect(()=>{
-        api.get('movies')
-        .then(response=>{
+        api.get('movies',{
+            headers:{
+                Authorization: idAux,
+            }
+        }).then(response=>{
             setMovies(response.data);
         })
-        },[]);
+        },[idAux]);
     
    
 
@@ -53,7 +57,7 @@ export default function List(){
                             <button onClick={()=>handleDelete(movieAux.id)}>Deletar</button>
                         </li>
                     );
-                })}
+                })};
             </ul>
             
         </div>

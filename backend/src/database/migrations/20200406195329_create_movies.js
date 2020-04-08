@@ -9,7 +9,9 @@ exports.up = function(knex) {
         table.string('actors');
         table.string('url');
         table.string('img');
-        table.string('idUser');
+        table.string('idUser').notNullable();
+
+        table.foreign('idUser').references('id').inTable('user');
       });
 };
 
