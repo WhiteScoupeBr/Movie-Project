@@ -1,11 +1,13 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
 
-module.down('movie');
+
 module.exports = {
   async index(request, response) {
     const idUser=request.headers.authorization;
-    const movies = await connection('movie').where('idUser',idUser).select('*');
+    const movies = await connection('movie')
+    //.where('idUser',idUser)
+    .select('*');
   
     return response.json(movies);
   },
@@ -23,7 +25,7 @@ module.exports = {
          } = request.body;
 
     const id = crypto.randomBytes(4).toString('HEX');
-    
+    console.log(idUser);
     await connection('movie').insert({
         id,
         title,
