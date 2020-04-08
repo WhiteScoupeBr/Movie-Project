@@ -26,9 +26,14 @@ export default function Register(){
         url,
         };
 
-        const response = await api.post('movies',data);
+        try{
+            const response = await api.post('movies',data);
 
-        alert(`Id do filme cadastrado: ${response.data.id}`)
+            alert(`Id do filme cadastrado: ${response.data.id}`);
+        }catch(err){
+            console.warn("Não foi possível cadastrar filme");
+        }
+        
     }
     return (
         <div className="wrap">

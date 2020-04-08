@@ -3,6 +3,7 @@ import './header.css'
 import {Link} from 'react-router-dom';
 
 
+
 export default function Header(){
     return  (
         <header>
@@ -11,6 +12,12 @@ export default function Header(){
             </Link>
             <Link to="/register">
                 <h3>Incluir</h3>
+            </Link>
+            <Link to="/list">
+                <h3>Lista</h3>
+            </Link>
+            <Link to="/search">
+                <h3>Buscar </h3>
             </Link>
             
 

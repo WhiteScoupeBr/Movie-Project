@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+h1{
+    margin-top: 20px;
+}
+
+ul{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 18px;
+    margin-left:25px ;
+    margin-top: 25px;
+    list-style: none;
+}
+
+li{
+    background: #FFF;
+    max-width: 600px;
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+}
+
+button {
+    width: 160px;
+    height: 45px;
+    background: rgb(34, 43, 51);
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: 700;
+    margin-top: 16px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 45px;
+    transition: filter 0.2s;
+}
+  
+button:hover {
+    filter: brightness(90%);
+}
+
+strong{
+    font: 700 15px Roboto,sans-serif;
+    margin-top: 5px;
+}
+p{
+    font: 400 15px Roboto,sans-serif;
+    max-width: 170px;
+    word-wrap: break-word;
+    text-align: justify;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.listA{
+    font: 400 15px Roboto,sans-serif;
+
+}
