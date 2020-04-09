@@ -5,8 +5,8 @@ const connection = require('../database/connection');
 module.exports = {
   async index(request, response) {
     const idUser=request.headers.authorization;
-    const movies = await connection('movie')
-    //.where('idUser',idUser)
+    const movies = await connection('movieaux')
+    .where('idUser',idUser)
     .select('*');
   
     return response.json(movies);
@@ -26,7 +26,7 @@ module.exports = {
 
     const id = crypto.randomBytes(4).toString('HEX');
     console.log(idUser);
-    await connection('movie').insert({
+    await connection('movieaux').insert({
         id,
         title,
         description,
@@ -35,7 +35,7 @@ module.exports = {
         actors,
         url,
         img,
-        //idUser,
+        idUser,
     })
 
     return response.json({ id });
@@ -45,7 +45,7 @@ module.exports = {
       const {id}=request.params;
 
       try{
-          const movies = await connection('movie')
+          const movies = await connection('movieaux')
           .where('id',id)
           .delete();
         console

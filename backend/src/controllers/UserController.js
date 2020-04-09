@@ -21,7 +21,7 @@ module.exports={
         .where('user',user)
         .select('user');
         
-        if(verify===user){
+        if(verify!==user){
             await connection('user').insert({
             id,
             user,

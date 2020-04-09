@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Link,useHistory} from 'react-router-dom';
+import {useHistory,Link} from 'react-router-dom';
 import './styles.css';
 import api from '../../services/api';
 
@@ -14,6 +14,7 @@ export default function Main(){
 
         try{
             const response = await api.post('sessions',{user,password})
+            
             localStorage.setItem('idUserAux',response.data.id);
             history.push('/list');
         }catch(err){
@@ -22,19 +23,30 @@ export default function Main(){
     }
 
     return (
-        <div className="wrap">
-            <form onSubmit={handleLogin}>
-                <h1>Login</h1>
-                <input type="text" placeholder="Usuário"
-                value={user}
-                onChange={e=>setUser(e.target.value)}
-                />
-                <input type="password" placeholder="Senha"
-                value={password}
-                onChange={e=>setPassword(e.target.value)}
-                 />
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
+            <div className="center">
+                
+                
+                <div className="container">
+                    <h1>Login</h1>
+                <form onSubmit={handleLogin}>
+                    <div className="inputdiv">
+                       <input type="text" placeholder="Usuário"
+                    value={user}
+                    onChange={e=>setUser(e.target.value)}
+                    />
+                    <input type="password" placeholder="Senha"
+                    value={password}
+                    onChange={e=>setPassword(e.target.value)}
+                    /> 
+                    </div>
+                    
+                    <button type="submit">Entrar</button>
+                    <Link to ="/userRegister">
+                        <button> Cadastrar</button>
+                    </Link>
+                </form>
+
+            </div>
+            </div>
     );
 }

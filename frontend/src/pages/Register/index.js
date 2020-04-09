@@ -13,14 +13,12 @@ export default function Register(){
     const [date, setDate] = useState('');
     const [actors, setActors] = useState('');
     const [url, setUrl] = useState('');
-    const aux = localStorage.getItem('idUserAux');
-    const [idUser,setIduser]=useState('');
+    const [idUser]=useState(localStorage.getItem('idUserAux'));
     const [img,setImg]=useState('');
-    
-
+   
     async function registrar(e){
         e.preventDefault();
-        setIduser(aux);
+        
         const data ={
         title,
         description,
@@ -31,7 +29,7 @@ export default function Register(){
         img,
         idUser,
         };
-
+        console.log(data.idUser);
         try{
             const response = await api.post('movies',data);
 
@@ -53,31 +51,31 @@ export default function Register(){
                 </section>
                 <form onSubmit={registrar}>
                     
-                    <input placeholder="Título" type="text"
+                    <input className="registroOnly" placeholder="Título" type="text"
                     value={title}
                     onChange={e=>setTitle(e.target.value)}
                     />
-                    <textarea placeholder="Descrição" 
+                    <textarea  className="registroOnly" placeholder="Descrição" 
                     value={description}
                     onChange={e=>setDescription(e.target.value)}
                     />
-                    <input placeholder="Gênero" type="text"
+                    <input className="registroOnly" placeholder="Gênero" type="text"
                     value={genre}
                     onChange={e=>setGenre(e.target.value)}
                     />
-                    <input placeholder="Data de Lançamento" type="text"
+                    <input className="registroOnly" placeholder="Data de Lançamento" type="text"
                     value={date}
                     onChange={e=>setDate(e.target.value)}
                     /> 
-                    <input placeholder="Atores" type="text"
+                    <input className="registroOnly" placeholder="Atores" type="text"
                     value={actors}
                     onChange={e=>setActors(e.target.value)}
                     />
-                    <input placeholder="URL do Trailer" type="text"
+                    <input className="registroOnly" placeholder="URL do Trailer" type="text"
                     value={url}
                     onChange={e=>setUrl(e.target.value)}
                     />
-                    <input placeholder="Imagem" type="text"
+                    <input className="registroOnly" placeholder="Imagem" type="text"
                     value={img}
                     onChange={e=>setImg(e.target.value)}
                     />

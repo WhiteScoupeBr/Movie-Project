@@ -1,14 +1,43 @@
-.wrap{
-   align-items: ;
-  display: inline-block;
+h1{
+    margin-bottom: 0px;
 }
-
-form{
-    display: inline-block;
-    align-items: center;
+.center{
+    display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.center .container {
+   
+    clear: both;
+    text-align:center ;
+    vertical-align: middle;
+    display: table-cell;
+    
+}
+  .center .container form{
+      display: inline-block;
+  }
+.container input {
+    width: 100%;
+    max-width: 340px;
+    clear: both;
+    margin-top: 35px;
+    margin-left: 20px;
     
 }
 
-input{
-    
+.container input+input{
+    margin-top: 15px;
 }
+
+.container button{
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+
+
+
