@@ -19,18 +19,19 @@ module.exports={
 
         const verify = await connection('user')
         .where('user',user)
-        .select('user');
+        .select('user')
+        .first();
         
-        if(verify!==user){
+        if(!verify){
             await connection('user').insert({
             id,
             user,
             password,
             })
     
-            return response.json({ id });
+            return response.json({ id,user });
         }else{
-            return response.json(417);
+          return response.status(400).json({ error: 'usuário já existe' });
         }
 
         

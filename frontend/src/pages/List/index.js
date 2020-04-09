@@ -57,7 +57,7 @@ export default function List(){
                             <button onClick={()=>handleDelete(movieAux.id)}>Deletar</button>
                         </li>
                     );
-                })};
+                })}
             </ul>
             
         </div>

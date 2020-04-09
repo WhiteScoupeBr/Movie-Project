@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Main from './pages/Main';
 import Register from './pages/Register';
 import List from './pages/List';
+import UserRegister from './pages/UserRegister';
+
 
 export default function Routes(){
     return(
@@ -12,6 +14,7 @@ export default function Routes(){
                 <Route path="/" exact component ={Main}/>
                 <Route path="/register" exact component ={Register}/>
                 <Route path="/list" exact component ={List}/>
+                <Route path="/userRegister" exact component ={UserRegister}/>
             </Switch>
         </BrowserRouter>
     );

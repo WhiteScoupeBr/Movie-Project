@@ -25,7 +25,7 @@ module.exports = {
          } = request.body;
 
     const id = crypto.randomBytes(4).toString('HEX');
-    console.log(idUser);
+    
     await connection('movieaux').insert({
         id,
         title,
