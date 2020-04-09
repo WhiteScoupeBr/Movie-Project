@@ -36,11 +36,13 @@ export default function List(){
                 <Header/>
             </div>
 
-            <h1>Filmes</h1>
-            <ul>
+            <h1 className="listH1">Filmes</h1>
+            <ul className="listUl">
                 {movies.map(movieAux=>{
                     return (
-                        <li key={movieAux.id} >
+                        <li className="listLi" key={movieAux.id} >
+                            
+                            <div className="listAll">
                             <strong>Título</strong>
                             <p>{movieAux.title}</p>
                             <strong>Descrição</strong>
@@ -55,6 +57,12 @@ export default function List(){
                             <a className="listA" href={movieAux.url}> Ir para Link </a>
                             <br/>
                             <button onClick={()=>handleDelete(movieAux.id)}>Deletar</button>
+                            </div>
+                           <div>
+
+                               <img className="listImg" src={movieAux.img} alt="Imagem"/>
+                           </div>
+                           
                         </li>
                     );
                 })}

@@ -4,14 +4,21 @@ section{
 div .form{
     align-items: center;
 }
-h1{
 
+.movieSec{
+    margin-left: 200px;
+    width: 300px;
+    margin-top: -30px;
+}
+.movieData{
+    font: 700 75px Roboto,sans-serif;
+    
 }
 .registroOnly{
     margin-top: 30px;
     max-width: 350px;
     display: flex;
-    margin-left: 800px;
+    margin-left: 700px;
     
 }
 
@@ -26,6 +33,6 @@ input+textarea,input{
 
 .button{
     width: 350px;
-    margin-left: 800px;
+    margin-left: 700px;
     background:rgb(34, 43, 51);
 }

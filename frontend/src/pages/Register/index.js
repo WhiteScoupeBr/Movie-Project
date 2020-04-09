@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import {useSpring,animated} from 'react-spring';
 import './styles.css';
 import Header from '../Header';
 import api from '../../services/api';
@@ -16,6 +16,10 @@ export default function Register(){
     const [idUser]=useState(localStorage.getItem('idUserAux'));
     const [img,setImg]=useState('');
    
+    const fade = useSpring({ opacity: 1,  from: { opacity: 0, } });
+
+    
+
     async function registrar(e){
         e.preventDefault();
         
@@ -45,11 +49,16 @@ export default function Register(){
                 <Header/>
             </div>
             <div className="form">
-
-                <section>
-                    <h1>Insira os dados do filme:</h1>
-                </section>
-                <form onSubmit={registrar}>
+            
+                <div>
+                    <section className="movieSec">
+                    <animated.h1 className="movieData" style={fade}>Insira os dados do filme:</animated.h1>
+                    </section>
+                </div>
+            
+                
+           
+                <animated.form style={fade} onSubmit={registrar}>
                     
                     <input className="registroOnly" placeholder="Título" type="text"
                     value={title}
@@ -80,7 +89,7 @@ export default function Register(){
                     onChange={e=>setImg(e.target.value)}
                     />
                     <button className="button" type="submit">Enviar</button>
-                </form>
+                </animated.form>
             </div>
         </div>
     );
