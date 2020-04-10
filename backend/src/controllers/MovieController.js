@@ -1,9 +1,11 @@
 const crypto = require('crypto');
 const connection = require('../database/connection');
 
-
+/** Exports MovieAux Table 
+Index: Fetch  movies based on the user Id, provide as parameter by the frontEnd
+*/
 module.exports = {
-  async index(request, response) {
+  async index(request, response) { 
     const idUser=request.headers.authorization;
     const movies = await connection('movieaux')
     .where('idUser',idUser)

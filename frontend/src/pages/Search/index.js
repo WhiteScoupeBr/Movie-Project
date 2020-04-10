@@ -17,6 +17,7 @@ export default function Search(){
     
     const fade = useSpring({ opacity: 1, marginTop:0 ,from: { opacity: 0, marginTop:-300 } });
 
+    /** Using axios to connect with the OMDB api */
     async function handleAdd(imbd){
         
         await Axios.get('http://www.omdbapi.com/?i='+imbd+'&apikey=126b5b34')
@@ -48,7 +49,9 @@ export default function Search(){
 
      
     
-    
+    /** If the title is empty on the Search it will return a false response from the OMDB api,
+    so preventing it 
+    */
     async function handleSearch(e){
         e.preventDefault();
 

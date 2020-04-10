@@ -7,7 +7,7 @@ import api from '../../services/api';
 
 export default function MovieUpdate(){
 
-    
+    /** Getting the movie data from the LocalStorage, so the user doesn't have to write all of it again */
     let aux = JSON.parse(localStorage.getItem('movieData'));
     const [title, setTitle] = useState(aux.title);
     const [description, setDescription] = useState(aux.description);

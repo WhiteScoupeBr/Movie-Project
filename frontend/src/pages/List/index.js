@@ -13,6 +13,8 @@ export default function List(){
     const props = useSpring({ opacity: 1, from: { opacity: 0} });
     const history = useHistory();
 
+    /** UseEffect is used to load the movies list when the page starts, has IdAux as reference, because
+    whenever it changes, it will change the movies that are shown */
         useEffect(()=>{
         api.get('movies',{
             headers:{
@@ -47,6 +49,7 @@ export default function List(){
 
             <animated.h1 style={props} className="listH1">Filmes</animated.h1>
             <ul className="listUl">
+                {/** Map function to iterate through each movie */}
                 {movies.map(movieAux=>{
                     return (
                             <animated.div style={fade}>

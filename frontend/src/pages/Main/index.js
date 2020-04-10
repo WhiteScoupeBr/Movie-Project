@@ -9,6 +9,8 @@ export default function Main(){
     const [password,setPassword] = useState('');
     const history = useHistory();
 
+    /** Function to handle the user Login
+    It saves the user Id on the LocalStorage so it can be used the later */
     async function handleLogin(e){
         e.preventDefault();
 

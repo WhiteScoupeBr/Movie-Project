@@ -28,8 +28,10 @@ module.exports={
             user,
             password,
             })
-    
+
             return response.json({ id,user });
+
+            
         }else{
           return response.status(400).json({ error: 'usuário já existe' });
         }
