@@ -1,32 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 
-.listH1{ 
+.findH1{ 
     margin-top: 20px;
     font-size: 36px;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-.listImg{
-    margin-top: 30px;
+.findH12{ 
+    text-align: center;
+}
+
+.findInput{
+    text-align: center;
+}
+.findAll{
+   display: inline;
+}
+
+.findImg{
     width: 225px;
     height: 334px;
-    margin-left:  60px;
     border-radius: 3%;
 }
 
-.divImg{
-    float: right;
-   
-}
-.listAll{
-   
-    float: left;
-}
-
-.listUl{
+.findUl{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-gap: 18px;
     margin-left:30px ;
     margin-top: 35px;
@@ -36,15 +36,16 @@
    
 }
 
-.listLi{
-    background: rgb(255, 255, 255);
+.findLi{
     width: 100%;
-    max-width: 600px;
+    max-width: 350px;
     height: 100%;
     padding: 24px;
     border-radius: 8px;
     margin-left: 30px;
-    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
     
 }
 
@@ -73,20 +74,15 @@ button:hover {
     filter: brightness(90%);
 }
 
-strong{
-    font: 700 15px Roboto,sans-serif;
-    margin-top: 5px;
-}
-p{
-    font: 400 15px Roboto,sans-serif;
-    max-width: 270px;
-    word-wrap: break-word;
-    text-align: justify;
-    margin-top: 2px;
-    margin-bottom: 5px;
+.findStrong{
+    font: 700 24px Roboto,sans-serif;
+    margin-top: 10px;
+    color: #FFF;
+    
 }
 
-.listA{
+
+.findA{
     font: 400 15px Roboto,sans-serif;
 
 }

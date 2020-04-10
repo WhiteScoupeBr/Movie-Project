@@ -84,7 +84,7 @@ export default function Register(){
                     value={url}
                     onChange={e=>setUrl(e.target.value)}
                     />
-                    <input className="registroOnly" placeholder="Imagem" type="text"
+                    <input className="registroOnly" placeholder="URL da Imagem" type="text"
                     value={img}
                     onChange={e=>setImg(e.target.value)}
                     />

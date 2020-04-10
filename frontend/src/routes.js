@@ -5,7 +5,7 @@ import Main from './pages/Main';
 import Register from './pages/Register';
 import List from './pages/List';
 import UserRegister from './pages/UserRegister';
-
+import Search from './pages/Search';
 
 export default function Routes(){
     return(
@@ -15,6 +15,7 @@ export default function Routes(){
                 <Route path="/register" exact component ={Register}/>
                 <Route path="/list" exact component ={List}/>
                 <Route path="/userRegister" exact component ={UserRegister}/>
+                <Route path="/search" exact component ={Search}/>
             </Switch>
         </BrowserRouter>
     );
