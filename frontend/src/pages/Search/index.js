@@ -35,8 +35,8 @@ export default function Search(){
                     
                 
                 try{
-                    const response = await api.post('movies',data);
-                    alert(`Id do filme cadastrado: ${response.data.id}`);
+                    await api.post('movies',data);
+                    alert(`Filme cadastrado com sucesso`);
                 }catch(err){
                     console.warn("Não foi possível cadastrar filme");
                 };
@@ -59,7 +59,7 @@ export default function Search(){
                 await Axios.get('http://www.omdbapi.com/?s='+titleAux+'&apikey=126b5b34')
                 .then((response)=>{
                 if(response.data.Response==="False"){
-                    alert('Filme não econtrado, tente digitar a palavra completa');
+                    alert('Filme não econtrado, tente novamente');
                 }
                 else{
                     setMovies(response.data.Search);

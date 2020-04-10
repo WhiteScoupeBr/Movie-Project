@@ -1,48 +1,48 @@
 import React,{useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {useSpring,animated} from 'react-spring';
 import './styles.css';
 import Header from '../Header';
 import api from '../../services/api';
 
-
-export default function Register(){
-
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [genre, setGenre] = useState('');
-    const [date, setDate] = useState('');
-    const [actors, setActors] = useState('');
-    const [url, setUrl] = useState('');
-    const [idUser]=useState(localStorage.getItem('idUserAux'));
-    const [img,setImg]=useState('');
-   
-    const fade = useSpring({ opacity: 1,  from: { opacity: 0, } });
+export default function MovieUpdate(){
 
     
+    let aux = JSON.parse(localStorage.getItem('movieData'));
+    const [title, setTitle] = useState(aux.title);
+    const [description, setDescription] = useState(aux.description);
+    const [genre, setGenre] = useState(aux.genre);
+    const [date, setDate] = useState(aux.date);
+    const [actors, setActors] = useState(aux.actors);
+    const [url, setUrl] = useState(aux.url);
+    const [idUser]=useState(aux.idUser);
+    const [img,setImg]=useState(aux.img);
 
-    async function registrar(e){
+    const history = useHistory();
+
+    const fade = useSpring({ opacity: 1,  from: { opacity: 0, } });
+
+    async function handleEdit(e){
         e.preventDefault();
-        
         const data ={
-        title,
-        description,
-        genre,
-        date,
-        actors,
-        url,
-        img,
-        idUser,
-        };
-        console.log(data.idUser);
+            title,
+            description,
+            genre,
+            date,
+            actors,
+            url,
+            img,
+            idUser,
+            };
+        console.log(data.title);
         try{
-             await api.post('movies',data);
-
-            alert(`Filme cadastrado com sucesso`);
+            await api.put(`movies/${aux.id}`,data);
+            history.push('/list');
         }catch(err){
-            console.warn("Não foi possível cadastrar filme");
+            alert('Não foi possível deletar');
         }
-        
     }
+
     return (
         <div className="wrap">
             <div className="head">
@@ -52,13 +52,13 @@ export default function Register(){
             
                 <div>
                     <section className="movieSec">
-                    <animated.h1 className="movieData" style={fade}>Insira os dados do filme:</animated.h1>
+                    <animated.h1 className="movieData" style={fade}>Altere os dados do filme:</animated.h1>
                     </section>
                 </div>
-            
+                
                 
            
-                <animated.form style={fade} onSubmit={registrar}>
+                <animated.form style={fade} onSubmit={handleEdit}>
                     
                     <input className="registroOnly" placeholder="Título" type="text"
                     value={title}

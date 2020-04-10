@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {useSpring,animated} from 'react-spring';
 import './styles.css';
 import Header from '../Header'
+import {useHistory} from 'react-router-dom';
 import api from '../../services/api';
  
 export default function List(){
@@ -10,6 +11,8 @@ export default function List(){
     const idAux = localStorage.getItem('idUserAux');
     const fade = useSpring({ opacity: 1, marginTop:0 ,from: { opacity: 0, marginTop:-300 } });
     const props = useSpring({ opacity: 1, from: { opacity: 0} });
+    const history = useHistory();
+
         useEffect(()=>{
         api.get('movies',{
             headers:{
@@ -21,6 +24,11 @@ export default function List(){
         },[idAux]);
     
    
+    function handleEdit(movieDataAux){
+        
+        localStorage.setItem('movieData',JSON.stringify(movieDataAux));
+        history.push('/movieupdate');
+    }
 
     async function handleDelete(idMovie){
 
@@ -58,7 +66,7 @@ export default function List(){
                                         <strong>Trailer</strong>
                                         <a className="listA" href={movieAux.url}> Ir para Link </a>
                                         <br/>
-                                        <button className="listB" onClick={()=>handleDelete(movieAux.id)}>Editar</button>
+                                        <button className="listB" onClick={()=>handleEdit(movieAux)}>Editar</button>
                                         <button className="listB" onClick={()=>handleDelete(movieAux.id)}>Deletar</button>
                                         
                                         

@@ -12,6 +12,41 @@ module.exports = {
     return response.json(movies);
   },
 
+  async update(request,response){
+    const {id}=request.params;
+    const {
+      title,
+      description,
+      genre,
+      date,
+      actors,
+      url,
+      img,
+      idUser,
+       } = request.body;
+
+      try{
+          const movies = await connection('movieaux')
+          .where('id',id)
+          .update({
+            id,
+            title,
+            description,
+            genre,
+            date,
+            actors,
+            url,
+            img,
+            idUser,
+          });
+      }catch(err){
+          console.warn('Id nao encontrado');
+      }
+      
+
+      return response.status(204).send();
+  },
+
   async create(request, response) {
     const {
         title,
@@ -48,7 +83,6 @@ module.exports = {
           const movies = await connection('movieaux')
           .where('id',id)
           .delete();
-        console
       }catch(err){
           console.warn('Id nao encontrado');
       }

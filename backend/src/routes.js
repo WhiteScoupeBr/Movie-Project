@@ -8,6 +8,7 @@ const routes = express.Router();
 routes.get('/movies', MovieController.index);
 routes.post('/movies',MovieController.create);
 routes.delete('/movies/:id',MovieController.delete);
+routes.put('/movies/:id',MovieController.update);
 
 routes.post('/sessions',SessionController.create);
 

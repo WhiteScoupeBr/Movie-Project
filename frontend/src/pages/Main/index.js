@@ -27,6 +27,7 @@ export default function Main(){
                 
                 
                 <div className="container">
+                    <h1 className="mainTitle" >Movie Catalog</h1>
                     <h1>Login</h1>
                 <form onSubmit={handleLogin}>
                     <div className="inputdiv">
